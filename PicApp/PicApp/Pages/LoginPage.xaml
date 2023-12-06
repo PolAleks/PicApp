@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PicApp.Pages.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Просмотр XXX фото" FontSize="Title" HorizontalTextAlignment="Center"/>
+        <Label x:Name="enterCodeMsg" Text="Установите PIN код из 4-ех символов" HorizontalTextAlignment="Center"/>
+        <Entry x:Name="pinEntry" Placeholder="Введите PIN-код" IsPassword="True"/>
+        <Button x:Name="LoginBtn" Text="Сохранить" Clicked="SavePinBtnClicked"/>
+    </StackLayout>
+</ContentPage>
