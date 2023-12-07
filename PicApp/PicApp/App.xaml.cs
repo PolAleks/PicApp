@@ -1,4 +1,5 @@
 ﻿using PicApp.Pages;
+using System;
 using Xamarin.Forms;
 
 namespace PicApp
@@ -8,7 +9,7 @@ namespace PicApp
         public App()
         {
             InitializeComponent();
-
+            
             MainPage = new NavigationPage(new LoginPage());
         }
 

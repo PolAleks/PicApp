@@ -3,8 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PicApp.Pages.GalleryPage"
              NavigationPage.HasNavigationBar="False">
+    
     <StackLayout>
-        <Label x:Name="fileLbl"/>
+        <Label Text="Фото" HorizontalOptions="Center" FontSize="Large"/>
+        <ListView x:Name="imageList"
+                  ItemsSource="{Binding Images}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="Default"
+                  RowHeight="80"
+                  ItemSelected="ImageSelectedHandler">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell ImageSource="{Binding Path}"
+                               Text="{Binding Name}">
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="End"
+                     HorizontalOptions="Center">
+            <Button x:Name="openBtn" Text="Открыть" WidthRequest="150" Clicked="OpenImageViewPage_Clicked"/>
+            <Button x:Name="deleteBtn" Text="Удалить" WidthRequest="150" Clicked="DeleteImage_Clicked"/>
+        </StackLayout>
     </StackLayout>
     
 </ContentPage>
