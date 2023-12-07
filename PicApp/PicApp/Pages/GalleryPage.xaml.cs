@@ -14,16 +14,15 @@ namespace PicApp.Pages
         /// <summary>Ссылка на выбранное изображение</summary>
         ImageInfo _selectedImage;
 
-        /// <summary>Путь к каталогу с изображениями</summary>
-        const string PATH = "/storage/emulated/0/DCIM/Camera/";
-
         public GalleryPage()
         {
-            InitializeComponent();
+            /// <summary>Путь к каталогу с изображениями</summary>
+            IPathGallery _gallery = DependencyService.Get<IPathGallery>();
+            string path = _gallery.GetPath();
 
             Images = new ObservableCollection<ImageInfo>();
             
-            string[] files = Directory.GetFiles(PATH);
+            string[] files = Directory.GetFiles(path);
 
             foreach (var file in files)
             {
@@ -31,6 +30,7 @@ namespace PicApp.Pages
                 Images.Add(new ImageInfo(imageFile.Name, file, imageFile.CreationTime));
             }
 
+            InitializeComponent();
             imageList.ItemsSource = Images;
         }
 
